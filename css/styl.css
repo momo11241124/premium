@@ -1,0 +1,266 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ヘッダー */
+
+header {
+    width: 200px;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+    margin: 40px auto 80px;
+}
+
+#menu-btn-check {
+    display: none;
+}
+
+.site-nav ul {
+    list-style: none;
+    margin: 100px;
+    margin-left: 20px;
+
+}
+
+.site-nav ul li {
+    margin-bottom: 1em;
+}
+
+.header-sns {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px 20px
+}
+
+
+
+
+
+/* メインビジュアル */
+
+.container {
+    margin-left: 200px;
+    position: relative;
+}
+
+.main-visual {
+    background: url(../img/mv-bg@2x.jpg) no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main-visual img {
+    height: 80vh;
+    max-height: 700px;
+    width: auto;
+}
+
+.main-visual-textbox {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+}
+
+.mv-text-numdate {
+    font-size: 1rem;
+    z-index: 0;
+    position: relative;
+    display: inline-flex;
+    margin: 0.5rem;
+}
+
+.main-text {
+    font-size: max(3.2vh, 2rem);
+    position: relative;
+    font-weight: bold;
+}
+
+.mv-text-numdate p::after {
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.mv-text1 {
+    display: inline-flex;
+    position: relative;
+    z-index: 0;
+    margin: 0.5rem;
+}
+
+.mv-text1::after {
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0
+}
+
+.mv-text2 {
+    display: inline-flex;
+    position: relative;
+    z-index: 0;
+    margin: 0.5rem
+}
+
+.mv-text2 ::after {
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0
+}
+
+/* spヘッダー */
+@media screen and (max-width: 768px) {
+    header {
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        z-index: 1;
+        width: 100%;
+        align-items: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+
+    h1 {
+        width: 140px;
+        margin: 0 0 0 20px;
+    }
+
+    /* spメインビジュアル */
+    .container {
+        display: block;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .main-visual img {
+        /* height: calc(100vh - 60px); */
+        position: relative;
+        display: flex;
+        animation: mv 1s .5s both;
+    }
+
+    /* SP-MVテキストボックス */
+
+    .main-visual-textbox {
+        position: absolute;
+        left: 4%;
+        bottom: 48px;
+    }
+
+
+    /* ハンバーガーメニュー */
+
+    .menu-btn {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        height: 40px;
+        width: 40px;
+        align-items: center;
+        justify-content: center;
+        z-index: 90;
+        background-color: #fff;
+    }
+
+    .menu-btn span,
+    .menu-btn span:before,
+    .menu-btn span:after {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 25px;
+        border-radius: 3px;
+        background-color: #000;
+        position: absolute;
+    }
+
+    .menu-btn span:before {
+        bottom: 8px;
+    }
+
+    .menu-btn span:after {
+        top: 8px;
+    }
+
+    #menu-btn-check:checked~.menu-btn span {
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    #menu-btn-check:checked~.menu-btn span::before {
+        bottom: 0;
+        transform: rotate(45deg);
+    }
+
+    #menu-btn-check:checked~.menu-btn span::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+
+    /* spメニュー開閉 */
+    .menu-content {
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        z-index: 80;
+    }
+    .site-nav {
+    }
+
+    .menu-content ul {
+        padding: 70px 10px 0;
+    }
+
+    .menu-content {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        z-index: 80;
+        transition: all 0.5s;
+    }
+
+    #menu-btn-check:checked~.menu-content {
+        left: 0;
+    }
+}
